@@ -23,7 +23,7 @@ dependencies {
 
 checkstyle {
     configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
-    toolVersion = '6.14.1'
+    toolVersion = '8.1'
 }
 checkstyleMain {
     configFile = file("${project.rootDir}/config/checkstyle/default.xml")
