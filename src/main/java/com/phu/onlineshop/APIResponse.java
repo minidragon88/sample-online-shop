@@ -1,4 +1,4 @@
-package com.phu.onlineshop.response;
+package com.phu.onlineshop;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

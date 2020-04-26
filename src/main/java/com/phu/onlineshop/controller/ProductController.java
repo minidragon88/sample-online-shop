@@ -1,10 +1,10 @@
 package com.phu.onlineshop.controller;
 
+import com.phu.onlineshop.APIResponse;
 import com.phu.onlineshop.model.product.Product;
 import com.phu.onlineshop.model.product.SearchMessage;
 import com.phu.onlineshop.model.product.SearchMessage.Column;
 import com.phu.onlineshop.model.product.SearchMessage.Operator;
-import com.phu.onlineshop.response.APIResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +20,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
+import static com.phu.onlineshop.Utils.RUNTIME_CONFIGURATION;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,7 +31,6 @@ public class ProductController
 {
     @Autowired
     private EntityManager entityManager;
-    private static final int PAGE_SIZE = 10;
 
     @PostMapping("/search")
     public ResponseEntity<APIResponse<List<Product>>> findAll(@RequestBody final SearchMessage message)
@@ -118,8 +119,8 @@ public class ProductController
                 break;
             }
         }
-        query.setFirstResult(message.getPage() * PAGE_SIZE);
-        query.setMaxResults(PAGE_SIZE);
+        query.setFirstResult(message.getPage() * RUNTIME_CONFIGURATION.getPageSize());
+        query.setMaxResults(RUNTIME_CONFIGURATION.getPageSize());
         return query;
     }
 }
