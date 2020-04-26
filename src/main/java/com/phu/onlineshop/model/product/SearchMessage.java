@@ -9,7 +9,7 @@ import java.util.List;
 public class SearchMessage
 {
     private static final List<Operator> STRING_OPERATORS = Arrays.asList(Operator.LIKE, Operator.EQUAL);
-    private static final List<Operator> NUMERIC_OPERATORS = Arrays.asList(Operator.EQUAL, Operator.GREATER, Operator.LESS, Operator.GREATER_THAN, Operator.LESS_THAN);
+    private static final List<Operator> NUMERIC_OPERATORS = Arrays.asList(Operator.EQUAL, Operator.GREATER, Operator.LESS, Operator.GREATER_THAN_OR_EQUAL, Operator.LESS_THAN_OR_EQUAL);
     private String term = "";
     private int page = 0;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
@@ -112,8 +112,8 @@ public class SearchMessage
         EQUAL("equal"),
         GREATER("greater"),
         LESS("less"),
-        GREATER_THAN("greater_than"),
-        LESS_THAN("less_than");
+        GREATER_THAN_OR_EQUAL("greater_than_or_equal"),
+        LESS_THAN_OR_EQUAL("less_than_or_equal");
         private final String name;
         Operator(final String name)
         {
