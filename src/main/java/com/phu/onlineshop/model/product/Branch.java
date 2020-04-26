@@ -12,6 +12,9 @@ public class Branch
     private String name;
     private String description;
 
+    public Branch()
+    {}
+
     public Branch(final String name, final String description)
     {
         this.name = name;

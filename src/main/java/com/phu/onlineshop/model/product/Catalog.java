@@ -12,6 +12,9 @@ public class Catalog
     private String name;
     private String description;
 
+    public Catalog()
+    {}
+
     public Catalog(final String name, final String description)
     {
         this.name = name;
