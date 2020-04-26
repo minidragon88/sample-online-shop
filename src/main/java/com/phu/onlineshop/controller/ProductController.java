@@ -2,10 +2,13 @@ package com.phu.onlineshop.controller;
 
 import com.phu.onlineshop.APIResponse;
 import com.phu.onlineshop.Utils;
+import com.phu.onlineshop.model.log.UserActionLog;
+import com.phu.onlineshop.model.log.UserActionLog.Severity;
 import com.phu.onlineshop.model.product.Product;
 import com.phu.onlineshop.model.product.SearchMessage;
 import com.phu.onlineshop.model.product.SearchMessage.Column;
 import com.phu.onlineshop.model.product.SearchMessage.Operator;
+import com.phu.onlineshop.service.LogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +33,18 @@ public class ProductController
 {
     @Autowired
     private EntityManager entityManager;
+    @Autowired
+    LogService logService;
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
     @PostMapping("/search")
     public ResponseEntity<APIResponse<List<Product>>> findAll(@RequestHeader final Map<String, String> headers, @RequestBody final SearchMessage message)
     {
+        final String endpoint = "/product/search";
         final String uuid = UUID.randomUUID().toString();
-        LOGGER.info("Request {} search /product/search with body {}", uuid, message);
+        final UserActionLog log = UserActionLog.newLog(uuid, Severity.INFO, headers, endpoint, message.toString());
+        logService.addLog(log);
+        LOGGER.info("Request {} search {} with body {}", uuid, endpoint, message);
         final Column column = message.getColumn();
         final Operator operator = message.getOperator();
         final List<Operator> allowOperators = column.getAllowOperators();

@@ -15,6 +15,7 @@ import javax.persistence.criteria.Root;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map;
 
 public final class Utils
 {
@@ -24,6 +25,15 @@ public final class Utils
     public static final Yaml YAML = new Yaml();
     public static final ObjectMapper MAPPER = new ObjectMapper();
     public static final Configuration RUNTIME_CONFIGURATION = loadConfig();
+
+    public static String getCurrentUsername(final Map<String, String> headers)
+    {
+        // Suppose in headers will have something like x-current-user then we could use it retrieve the user name
+        if (headers.containsKey("x-current-user")) {
+            return headers.get("x-current-user");
+        }
+        return "anonymous";
+    }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public static TypedQuery<Product> buildProductSearchQuery(final EntityManager entityManager, final SearchMessage message)
