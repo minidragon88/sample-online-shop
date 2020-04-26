@@ -2,6 +2,8 @@ package com.phu.onlineshop.model.product;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.phu.onlineshop.Utils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -162,5 +164,17 @@ public class SearchMessage
         {
             return name;
         }
+    }
+
+    @Override
+    public String toString()
+    {
+        try {
+            return Utils.MAPPER.writeValueAsString(this);
+        }
+        catch (final JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return super.toString();
     }
 }
