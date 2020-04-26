@@ -1,18 +1,18 @@
-package com.phu.onlineshop.model;
+package com.phu.onlineshop.model.product;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "branches")
-public class Branch
+@Table(name = "catalogs")
+public class Catalog
 {
     @Id
     private String name;
     private String description;
 
-    public Branch(final String name, final String description)
+    public Catalog(final String name, final String description)
     {
         this.name = name;
         this.description = description;

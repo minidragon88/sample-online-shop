@@ -1,4 +1,4 @@
-package com.phu.onlineshop.model;
+package com.phu.onlineshop.model.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

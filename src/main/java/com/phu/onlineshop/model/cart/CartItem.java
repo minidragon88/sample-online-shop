@@ -1,4 +1,6 @@
-package com.phu.onlineshop.model;
+package com.phu.onlineshop.model.cart;
+
+import com.phu.onlineshop.model.product.Product;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

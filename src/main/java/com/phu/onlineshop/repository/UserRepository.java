@@ -1,6 +1,6 @@
 package com.phu.onlineshop.repository;
 
-import com.phu.onlineshop.model.User;
+import com.phu.onlineshop.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

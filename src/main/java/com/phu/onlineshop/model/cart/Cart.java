@@ -1,4 +1,6 @@
-package com.phu.onlineshop.model;
+package com.phu.onlineshop.model.cart;
+
+import com.phu.onlineshop.model.user.User;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
