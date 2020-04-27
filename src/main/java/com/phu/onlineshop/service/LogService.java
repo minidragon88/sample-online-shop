@@ -53,7 +53,7 @@ public class LogService
         LOG_QUEUE.add(log);
     }
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = Utils.LOG_FLUSH_DURATION)
     public void flushLogs()
     {
         if (LOG_QUEUE.isEmpty()) {

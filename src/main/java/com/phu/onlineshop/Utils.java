@@ -25,6 +25,7 @@ public final class Utils
     public static final Yaml YAML = new Yaml();
     public static final ObjectMapper MAPPER = new ObjectMapper();
     public static final Configuration RUNTIME_CONFIGURATION = loadConfig();
+    public static final long LOG_FLUSH_DURATION = 5000;
 
     public static String getCurrentUsername(final Map<String, String> headers)
     {
