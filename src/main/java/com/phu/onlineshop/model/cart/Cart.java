@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.phu.onlineshop.Utils;
 import com.phu.onlineshop.model.user.User;
 
 import javax.persistence.CascadeType;
@@ -44,9 +42,11 @@ public class Cart
     public Cart()
     {}
 
-    public Cart(final Long id)
+    public Cart(final Long id, final User owner, final List<CartItem> items)
     {
         this.id = id;
+        this.owner = owner;
+        this.items = items;
     }
 
     public Long getId()
@@ -54,11 +54,9 @@ public class Cart
         return id;
     }
 
-    public void setId(final Long id, final User owner, final List<CartItem> items)
+    public void setId(final Long id)
     {
         this.id = id;
-        this.owner = owner;
-        this.items = items;
     }
 
     public User getOwner()
@@ -84,17 +82,5 @@ public class Cart
     public Double getTotal()
     {
         return items.stream().mapToDouble(item -> item.getTotal()).sum();
-    }
-
-    @Override
-    public String toString()
-    {
-        try {
-            return Utils.MAPPER.writeValueAsString(this);
-        }
-        catch (final JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return super.toString();
     }
 }

@@ -17,4 +17,9 @@ public class UserService
     {
         return repository.findAll();
     }
+
+    public User findById(final String id)
+    {
+        return repository.findById(id).orElse(null);
+    }
 }
