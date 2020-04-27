@@ -11,6 +11,22 @@ In order to run and build this product you should use
 * Gradle installed (prefer version `4.10.2` to above)
 
 # Design
+## High level design
+<img src="docs/high_level_design.png" width="800">
+
+### Product Service
+* Support user to search `Product`
+* Add user's action to `Log Service`
+* Using Criteria API to build search criteria
+
+### Cart Service
+* Support user to check out their `Cart`
+* Add user's action to `Log Service`
+
+### Log Service
+* Manage the logs to be persisted into DB
+* To prevent flushing the DB so frequently, using a `Log Queue` in middle and will flushing logs to DB every 5 seconds. You could modify [this configuration](https://github.com/minidragon88/sample-online-shop/blob/master/src/main/java/com/phu/onlineshop/Utils.java#L28)
+
 ## ERD Diagram
 <img src="docs/onlineshop_erd.png" width="800">
 
