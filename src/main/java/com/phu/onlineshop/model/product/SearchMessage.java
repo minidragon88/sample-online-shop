@@ -19,7 +19,7 @@ public class SearchMessage
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Operator operator = Operator.EQUAL;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private ORDER order = ORDER.ASC;
+    private Order order = Order.ASC;
 
     public String getTerm()
     {
@@ -61,12 +61,12 @@ public class SearchMessage
         this.operator = operator;
     }
 
-    public ORDER getOrder()
+    public Order getOrder()
     {
         return order;
     }
 
-    public void setOrder(final ORDER order)
+    public void setOrder(final Order order)
     {
         this.order = order;
     }
@@ -139,25 +139,25 @@ public class SearchMessage
         }
     }
 
-    public enum ORDER
+    public enum Order
     {
         ASC("asc"),
         DESC("desc");
         private final String name;
-        ORDER(final String name)
+        Order(final String name)
         {
             this.name = name;
         }
 
         @JsonCreator
-        public static ORDER fromString(final String value)
+        public static Order fromString(final String value)
         {
-            for (final ORDER order : ORDER.values()) {
+            for (final Order order : Order.values()) {
                 if (order.getName().equalsIgnoreCase(value)) {
                     return order;
                 }
             }
-            return ORDER.ASC;
+            return Order.ASC;
         }
 
         public String getName()

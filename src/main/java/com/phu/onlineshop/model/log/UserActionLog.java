@@ -1,5 +1,6 @@
 package com.phu.onlineshop.model.log;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.phu.onlineshop.Utils;
 
 import javax.persistence.Column;
@@ -19,7 +20,7 @@ public class UserActionLog
     private String uuid;
     private Long time;
     @Enumerated(EnumType.STRING)
-    private Severity severity;
+    private Severity severity = Severity.INFO;
     private String username;
     private String action;
     @Column(length = 100000)
@@ -105,6 +106,27 @@ public class UserActionLog
 
     public enum Severity
     {
-        INFO, WARN, ERROR;
+        INFO("info"), WARN("warn"), ERROR("error");
+        private final String severity;
+        Severity(final String severity)
+        {
+            this.severity = severity;
+        }
+
+        @JsonCreator
+        public static Severity fromString(final String value)
+        {
+            for (final Severity severity : Severity.values()) {
+                if (severity.getSeverity().equalsIgnoreCase(value)) {
+                    return severity;
+                }
+            }
+            return Severity.INFO;
+        }
+
+        public String getSeverity()
+        {
+            return severity;
+        }
     }
 }
