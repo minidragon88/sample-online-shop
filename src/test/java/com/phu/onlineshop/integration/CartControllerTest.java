@@ -1,6 +1,8 @@
-package com.phu.onlineshop;
+package com.phu.onlineshop.integration;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.phu.onlineshop.OnlineShopApp;
+import com.phu.onlineshop.TestHelpers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

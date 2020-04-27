@@ -8,14 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -26,13 +24,7 @@ public class LogController
     @Autowired
     private LogService logService;
 
-    @GetMapping("/logs")
-    public List<UserActionLog> getAll()
-    {
-        return logService.findAll();
-    }
-
-    @PostMapping("/logs")
+    @PostMapping("/log")
     public ResponseEntity<APIResponse<String>> putLog(@RequestHeader final Map<String, String> headers, @RequestBody final UserActionLog log)
     {
         final String uuid = UUID.randomUUID().toString();

@@ -1,5 +1,6 @@
-package com.phu.onlineshop;
+package com.phu.onlineshop.integration;
 
+import com.phu.onlineshop.OnlineShopApp;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;

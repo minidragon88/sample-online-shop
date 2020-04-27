@@ -31,19 +31,22 @@ In order to run and build this product you should use
 <img src="docs/onlineshop_erd.png" width="800">
 
 # Build, run and test
-Start the server by run
+## Run
 
 ```
-./gradlew build bootRun
+./gradlew build bootRun -x test
 ```
 
-After the server is started, you could try out the APIs.
+## Test
+```
+./gradlew checkstyle test jacocoTestReport
+```
 
 # API samples
 ## Search product
 ```
-curl --location --request POST 'http://localhost:8080/product/search' --header 'Content-Type: application/json' --data-raw '{ "term" : "", "column" : "name", "operator":"like", "page" : 0 }'
-curl --location --request POST 'http://localhost:8080/product/search' --header 'Content-Type: application/json' --data-raw '{ "term" : "100", "column" : "price", "operator":"greater", "page" : 0 }'
+curl --location --request POST 'http://localhost:8080/product/search' --header 'Content-Type: application/json' --data-raw '{ "term" : "", "column" : "name", "operator":"like", "page" : 0, "order": "asc" }'
+curl --location --request POST 'http://localhost:8080/product/search' --header 'Content-Type: application/json' --data-raw '{ "term" : "100", "column" : "price", "operator":"greater", "page" : 0, "order": "asc" }'
 ```
 **Response**:
 
@@ -53,7 +56,7 @@ curl --location --request POST 'http://localhost:8080/product/search' --header '
 
 ## Log message
 ```
-curl --location --request POST 'http://localhost:8080/logs' --header 'Content-Type: application/json' --data-raw '{ "action" : "logging", "severity" : "warn", "data":"{\"user\":\"username\",\"items\":[{\"product\":\"1\",\"quantity\":1},{\"product\":\"2\",\"quantity\":2}]}" }'
+curl --location --request POST 'http://localhost:8080/log' --header 'Content-Type: application/json' --data-raw '{ "action" : "logging", "severity" : "warn", "data":"{\"user\":\"username\",\"items\":[{\"product\":\"1\",\"quantity\":1},{\"product\":\"2\",\"quantity\":2}]}" }'
 ```
 **Response**:
 

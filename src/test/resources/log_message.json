@@ -1,0 +1,25 @@
+{
+    "logSuccess": {
+        "action": "logging",
+        "severity": "warn",
+        "data": "{\"user\":\"username\",\"items\":[{\"product\":\"1\",\"quantity\":1},{\"product\":\"2\",\"quantity\":2}]}"
+    },
+    "logMissingAction": {
+        "severity": "warn",
+        "data": "{\"user\":\"username\",\"items\":[{\"product\":\"1\",\"quantity\":1},{\"product\":\"2\",\"quantity\":2}]}"
+    },
+    "logEmptyAction": {
+        "action": "",
+        "severity": "warn",
+        "data": "{\"user\":\"username\",\"items\":[{\"product\":\"1\",\"quantity\":1},{\"product\":\"2\",\"quantity\":2}]}"
+    },
+    "logMissingData": {
+        "action": "logging",
+        "severity": "warn"
+    },
+    "logEmptyData": {
+        "action": "logging",
+        "severity": "warn",
+        "data": ""
+    }
+}
