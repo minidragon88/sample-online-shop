@@ -74,11 +74,11 @@ public class CartController
     @Transactional
     public ResponseEntity<APIResponse<ObjectNode>> order(@RequestHeader final Map<String, String> headers, @RequestBody final CartMessage message)
     {
-        final String endpoint = "/product/search";
+        final String endpoint = "/cart/order";
         final String uuid = UUID.randomUUID().toString();
         final UserActionLog log = UserActionLog.newLog(uuid, Severity.INFO, headers, endpoint, message.toString());
         logService.addLog(log);
-        LOGGER.info("Request {} order {} with body {}", uuid, endpoint, message);
+        LOGGER.info("Request {} endpoint {} with body {}", uuid, endpoint, message);
 
         if (message.getUser() == null || userService.findById(message.getUser()) == null) {
             final String errorMessage = "User does not exist";

@@ -44,7 +44,7 @@ public class ProductController
         final String uuid = UUID.randomUUID().toString();
         final UserActionLog log = UserActionLog.newLog(uuid, Severity.INFO, headers, endpoint, message.toString());
         logService.addLog(log);
-        LOGGER.info("Request {} search {} with body {}", uuid, endpoint, message);
+        LOGGER.info("Request {} endpoint {} with body {}", uuid, endpoint, message);
         final Column column = message.getColumn();
         final Operator operator = message.getOperator();
         final List<Operator> allowOperators = column.getAllowOperators();
