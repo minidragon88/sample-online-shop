@@ -10,6 +10,10 @@ In order to run and build this product you should use
 * Java version from `1.8` to above
 * Gradle installed (prefer version `4.10.2` to above)
 
+# Design
+## ERD Diagram
+<img src="docs/onlineshop_erd.png" width="800">
+
 # Build, run and test
 Start the server by run
 
@@ -19,7 +23,7 @@ Start the server by run
 
 After the server is started, you could try out the APIs.
 
-# API sample commands
+# API samples
 ## Search product
 ```
 curl --location --request POST 'http://localhost:8080/product/search' --header 'Content-Type: application/json' --data-raw '{ "term" : "", "column" : "name", "operator":"like", "page" : 0 }'
@@ -51,6 +55,12 @@ curl --location --request POST 'http://localhost:8080/cart/checkout' --header 'C
 {"status":201,"message":null,"results":{"id":3}}
 ```
 
-# Design
-## ERD Diagram
-<img src="docs/onlineshop_erd.png" width="800">
+## API documentations
+Embedded inside this project is `Swagger UI` which help you to view all the available APIs.
+
+[Swagger UI](http://localhost:8080/swagger-ui.html)
+
+## Access DB
+Embedded inside this project is `H2 Console` which help you to view the underlying DB tables.
+
+[H2 Console](http://localhost:8080/h2-console) with `username` is `sa` - no password is required
