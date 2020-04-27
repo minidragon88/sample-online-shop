@@ -1,3 +1,6 @@
+-- Users data
+INSERT INTO users(username, password, first_name, last_name, phone_number, address) VALUES('user', 'password', 'First Name 1', 'Last Name 1', '123456', 'address');
+
 -- Catalogs data
 INSERT INTO catalogs(name, description) VALUES('CPU', 'description CPU');
 INSERT INTO catalogs(name, description) VALUES('MAIN', 'description Main Boards');
@@ -33,5 +36,8 @@ INSERT INTO products(id, name, description, price, colour, catalog_id, branch_id
 INSERT INTO products(id, name, description, price, colour, catalog_id, branch_id) VALUES(15, 'Asus Main 1', 'Asus Main 1', 150.150, 'Blue', 'MAIN', 'Asus');
 INSERT INTO products(id, name, description, price, colour, catalog_id, branch_id) VALUES(16, 'Asus Main 2', 'Asus Main 2', 160.160, 'Red', 'MAIN', 'Asus');
 
+-- Carts data
+INSERT INTO carts(id, username) VALUES(1, 'user');
 
-INSERT INTO users(username, password, first_name, last_name, phone_number, address) VALUES('user', 'password', 'First Name 1', 'Last Name 1', '123456', 'address');
+-- Carts items
+INSERT INTO cart_items(id, quantity, cart_id, product_id) VALUES(1, 1, 1, 1);

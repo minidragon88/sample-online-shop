@@ -1,5 +1,11 @@
 package com.phu.onlineshop.model.cart;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.phu.onlineshop.Utils;
 import com.phu.onlineshop.model.user.User;
 
 import javax.persistence.CascadeType;
@@ -24,13 +30,16 @@ public class Cart
     private Long id;
     @ManyToOne
     @JoinColumn(name = "username", referencedColumnName = "username")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "username")
+    @JsonIdentityReference(alwaysAsId = true)
     private User owner;
     @OneToMany(
             mappedBy = "cart",
             cascade = CascadeType.ALL,
             orphanRemoval = true
         )
-    List<CartItem> items = new ArrayList<>();
+    @JsonIgnoreProperties({"cart"})
+    private List<CartItem> items = new ArrayList<>();
 
     public Cart()
     {}
@@ -75,5 +84,17 @@ public class Cart
     public Double getTotal()
     {
         return items.stream().mapToDouble(item -> item.getTotal()).sum();
+    }
+
+    @Override
+    public String toString()
+    {
+        try {
+            return Utils.MAPPER.writeValueAsString(this);
+        }
+        catch (final JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return super.toString();
     }
 }

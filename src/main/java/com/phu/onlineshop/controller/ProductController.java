@@ -34,7 +34,7 @@ public class ProductController
     @Autowired
     private EntityManager entityManager;
     @Autowired
-    LogService logService;
+    private LogService logService;
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
     @PostMapping("/search")

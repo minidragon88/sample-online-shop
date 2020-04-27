@@ -1,5 +1,9 @@
 package com.phu.onlineshop.model.cart;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.phu.onlineshop.model.product.Product;
 
 import javax.persistence.Entity;
@@ -19,9 +23,12 @@ public class CartItem
     private Long id;
     @ManyToOne
     @JoinColumn(name = "cart_id", referencedColumnName = "id")
+    @JsonIgnore
     private Cart cart;
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
     private Product product;
     private int quantity;
 
