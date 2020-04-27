@@ -1,0 +1,90 @@
+{
+    "checkoutSuccess": {
+        "user": "user",
+        "items": [
+            {
+                "product": 1,
+                "quantity": 1
+            },
+            {
+                "product": 2,
+                "quantity": 2
+            }
+        ]
+    },
+    "checkoutMissingUser": {
+        "items": [
+            {
+                "product": 1,
+                "quantity": 1
+            },
+            {
+                "product": 2,
+                "quantity": 2
+            }
+        ]
+    },
+    "checkoutNonExistedUser": {
+        "user": "xxxxxxx",
+        "items": [
+            {
+                "product": 1,
+                "quantity": 1
+            },
+            {
+                "product": 2,
+                "quantity": 2
+            }
+        ]
+    },
+    "checkoutMissingProduct": {
+        "user": "user",
+        "items": [
+            {
+                "quantity": 1
+            },
+            {
+                "product": 2,
+                "quantity": 2
+            }
+        ]
+    },
+    "checkoutNonExistedProduct": {
+        "user": "user",
+        "items": [
+            {
+                "product": 1,
+                "quantity": 1
+            },
+            {
+                "product": 234567,
+                "quantity": 2
+            }
+        ]
+    },
+    "checkoutMissingQuantity": {
+        "user": "user",
+        "items": [
+            {
+                "product": 1
+            },
+            {
+                "product": 2,
+                "quantity": 2
+            }
+        ]
+    },
+    "checkoutNegativeQuantity": {
+        "user": "user",
+        "items": [
+            {
+                "product": 1,
+                "quantity": 1
+            },
+            {
+                "product": 2,
+                "quantity": -2
+            }
+        ]
+    }
+}
