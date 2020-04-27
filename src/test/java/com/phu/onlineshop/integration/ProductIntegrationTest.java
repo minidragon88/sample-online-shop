@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
     @Sql(scripts = "classpath:clean_data.sql"),
     @Sql(scripts = "classpath:prepare_data.sql")
 })
-public class ProductControllerTest
+public class ProductIntegrationTest
 {
     @Autowired
     private MockMvc mvc;

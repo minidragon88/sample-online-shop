@@ -34,12 +34,12 @@ In order to run and build this product you should use
 ## Run
 
 ```
-./gradlew build bootRun -x test
+./gradlew clean build bootRun -x test
 ```
 
 ## Test
 ```
-./gradlew checkstyle test jacocoTestReport
+./gradlew clean checkstyle test jacocoTestReport
 ```
 
 # API samples
