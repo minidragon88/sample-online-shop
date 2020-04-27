@@ -27,13 +27,13 @@ public class LogController
     private LogService logService;
 
     @GetMapping("/logs")
-    public List<UserActionLog> findAll()
+    public List<UserActionLog> getAll()
     {
         return logService.findAll();
     }
 
     @PostMapping("/logs")
-    public ResponseEntity<APIResponse<String>> findAll(@RequestHeader final Map<String, String> headers, @RequestBody final UserActionLog log)
+    public ResponseEntity<APIResponse<String>> putLog(@RequestHeader final Map<String, String> headers, @RequestBody final UserActionLog log)
     {
         final String uuid = UUID.randomUUID().toString();
         if (StringUtils.isEmpty(log.getAction())) {

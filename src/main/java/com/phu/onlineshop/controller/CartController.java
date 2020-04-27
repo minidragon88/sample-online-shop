@@ -51,7 +51,7 @@ public class CartController
     private static final Logger LOGGER = LoggerFactory.getLogger(CartController.class);
 
     @GetMapping("/cart")
-    public ResponseEntity<APIResponse<List<Cart>>> findAll()
+    public ResponseEntity<APIResponse<List<Cart>>> getAll()
     {
         final List<Cart> results = cartService.findAll();
         if (results.isEmpty()) {
@@ -61,7 +61,7 @@ public class CartController
     }
 
     @GetMapping("/cart/{id}")
-    public ResponseEntity<APIResponse<Cart>> findById(@PathVariable final Long id)
+    public ResponseEntity<APIResponse<Cart>> getById(@PathVariable final Long id)
     {
         final Cart result = cartService.finbyId(id);
         if (result == null) {
@@ -70,9 +70,9 @@ public class CartController
         return new APIResponse<Cart>(HttpStatus.OK.value(), null, result).toResponseEntity();
     }
 
-    @PostMapping("/cart/order")
+    @PostMapping("/cart/checkout")
     @Transactional
-    public ResponseEntity<APIResponse<ObjectNode>> order(@RequestHeader final Map<String, String> headers, @RequestBody final CartMessage message)
+    public ResponseEntity<APIResponse<ObjectNode>> checkout(@RequestHeader final Map<String, String> headers, @RequestBody final CartMessage message)
     {
         final String endpoint = "/cart/order";
         final String uuid = UUID.randomUUID().toString();

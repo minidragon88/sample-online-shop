@@ -38,7 +38,7 @@ public class ProductController
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
     @PostMapping("/search")
-    public ResponseEntity<APIResponse<List<Product>>> findAll(@RequestHeader final Map<String, String> headers, @RequestBody final SearchMessage message)
+    public ResponseEntity<APIResponse<List<Product>>> searchProduct(@RequestHeader final Map<String, String> headers, @RequestBody final SearchMessage message)
     {
         final String endpoint = "/product/search";
         final String uuid = UUID.randomUUID().toString();
