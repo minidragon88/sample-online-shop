@@ -1,0 +1,100 @@
+{
+    "allDataFirstPage": {
+        "term": "",
+        "column": "name",
+        "operator": "like",
+        "page": 0,
+        "order": "asc"
+    },
+    "allDataSecondPage": {
+        "term": "",
+        "column": "name",
+        "operator": "like",
+        "page": 1,
+        "order": "asc"
+    },
+    "likeOnNameColumn": {
+        "term": "Intel",
+        "column": "name",
+        "operator": "like",
+        "page": 0,
+        "order": "asc"
+    },
+    "equalOnNameColumn": {
+        "term": "Intel CPU 1",
+        "column": "name",
+        "operator": "equal",
+        "page": 0,
+        "order": "asc"
+    },
+    "likeOnNameColumnAsc": {
+        "term": "Intel",
+        "column": "name",
+        "operator": "like",
+        "page": 0,
+        "order": "asc"
+    },
+    "likeOnNameColumnDesc": {
+        "term": "Intel",
+        "column": "name",
+        "operator": "like",
+        "page": 0,
+        "order": "desc"
+    },
+    "equalPrice": {
+        "term": "10.10",
+        "column": "price",
+        "operator": "equal",
+        "page": 0,
+        "order": "asc"
+    },
+    "gtPrice": {
+        "term": "100.100",
+        "column": "price",
+        "operator": "greater",
+        "page": 0,
+        "order": "asc"
+    },
+    "gtOrEqualPrice": {
+        "term": "100.100",
+        "column": "price",
+        "operator": "greater_than_or_equal",
+        "page": 0,
+        "order": "asc"
+    },
+    "ltPrice": {
+        "term": "100.100",
+        "column": "price",
+        "operator": "less",
+        "page": 0,
+        "order": "asc"
+    },
+    "ltOrEqualPrice": {
+        "term": "100.100",
+        "column": "price",
+        "operator": "less_than_or_equal",
+        "page": 0,
+        "order": "asc"
+    },
+    "noResult": {
+        "term": "",
+        "column": "price",
+        "operator": "less_than_or_equal",
+        "page": 10,
+        "order": "asc"
+    },
+    "negativePage": {
+        "term": "",
+        "column": "price",
+        "operator": "less_than_or_equal",
+        "page": -10,
+        "order": "asc"
+    },
+    "gtOnNameColumn": {
+        "term": "123",
+        "column": "name",
+        "operator": "greater",
+        "page": 0,
+        "order": "asc"
+    }
+}

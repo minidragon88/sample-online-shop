@@ -25,7 +25,7 @@ In order to run and build this product you should use
 
 ### Log Service
 * Manage the logs to be persisted into DB
-* To prevent flushing the DB so frequently, using a `Log Queue` in middle and will flushing logs to DB every 5 seconds. You could modify [this configuration](https://github.com/minidragon88/sample-online-shop/blob/master/src/main/java/com/phu/onlineshop/Utils.java#L28)
+* To prevent flushing the DB so frequently, using a `Log Queue` in middle and will flush logs to DB every 5 seconds. You could modify [this configuration](https://github.com/minidragon88/sample-online-shop/blob/master/src/main/java/com/phu/onlineshop/Utils.java#L28)
 
 ## ERD Diagram
 <img src="docs/onlineshop_erd.png" width="800">

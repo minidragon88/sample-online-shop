@@ -44,6 +44,15 @@ public final class Utils
         final CriteriaQuery<Product> criteria = cb.createQuery(Product.class);
         final Root<Product> root = criteria.from(Product.class);
         criteria.select(root);
+        switch (message.getOrder()) {
+        case ASC:
+            criteria.orderBy(cb.asc(root.get(message.getColumn().getColumn())));
+            break;
+
+        default:
+            criteria.orderBy(cb.desc(root.get(message.getColumn().getColumn())));
+            break;
+        }
         if (message.getTerm().isEmpty()) {
             query = entityManager.createQuery(criteria);
         }
